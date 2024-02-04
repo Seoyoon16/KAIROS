@@ -1,0 +1,36 @@
+int A_IA = 10;
+int A_IB = 9;
+int B_IA = 5;
+int B_IB = 6;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(115200);
+  pinMode(A_IA, OUTPUT);
+  pinMode(A_IB, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (Serial.available()) {
+    char c = Serial.read();
+    if (c == 'f') {
+      analogWrite(A_IA, 128);
+      analogWrite(A_IB, 0);
+      analogWrite(B_IA, 128);
+      analogWrite(B_IB, 0);
+    }
+    else if (c == 'b') {
+      analogWrite(A_IA, 0);
+      analogWrite(A_IB, 128);
+      analogWrite(B_IA, 0);
+      analogWrite(B_IB, 128);
+    }
+    else if (c == 's') {
+      analogWrite(A_IA, 0);
+      analogWrite(A_IB, 0);
+      analogWrite(B_IA, 0);
+      analogWrite(B_IB, 0);
+    }
+  }
+}

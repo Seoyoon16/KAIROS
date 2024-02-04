@@ -1,0 +1,116 @@
+#
+while(1){
+    // for(i=0; )
+    int randomNumber1 = random(2, 10);
+    int randomNumber2 = random(2, 10);
+    int randomNumber3 = random(2, 10);
+    digitalWrite(randomNumber1, HIGH);
+    digitalWrite(randomNumber2, HIGH);
+    digitalWrite(randomNumber3, HIGH);
+    delay(70);
+    digitalWrite(randomNumber1, LOW);
+    digitalWrite(randomNumber2, LOW);
+    digitalWrite(randomNumber3, LOW);
+    delay(30);
+  }
+
+#
+int arr[] = {2, 3, 4, 5, 6, 7, 8, 9};
+
+void setup() {
+  for (int pin : arr) {
+    pinMode(pin, OUTPUT);
+  }
+}
+
+# 통신이론
+병렬 통신: 한 바이트를 한 번에 보냄 -> 간섭 생김, 부가 장비 필요 등 불편한 점 많음
+>> 시리얼 통신 (직렬 통신) 사용
+
+직렬 통신:
+동기 vs 비동기
+동기식: 암호 해석용 시계를 데이터와 같이 보냄
+비동기식: 시계 없음, 해석은 보드레이트에 맞춰서, 가끔 패리티 비트까지만 알려줌 / 신호 간섭이 없어 장거리 통신에 사용
+
+c: clock / d: data
+up: 1 / down: 0
+
+RS232, RS422, RS485
+
+UART: 비동기식 통신
+
+#
+pull down: LOW -> 버튼 누르면 HIGH
+pull up <-> pull down
+플로팅 상태를 방지하기 위해 사용
+
+#
+가변저항 연결
+GND는 GND, VCC는 전원(5V), OUT은 pin
+아날로그, 입력 0~1023, 출력 0~255
+
+#
+map함수
+
+#
+XOR: 같으면 0, 다르면 1
+
+#
+초음파 연결
+trigger: output, digital
+echo: input, analog
+외부영향 적음
+
+“거리 = 시간 x 속력” 공식에 의해 초음파가 발생되어 수신할 때까지의 시간을 알고,
+초음파의 속력은 공기중에서 340m/s로 이동함을 알 수 있기 때문에 이를 통해 거리를 계산할 수 있습니다.
+초음파가 발생하고 수신될 때까지의 시간은 초음파센서에서 초음파가 발생해 물체까지 도달한 시간이 아닌,
+물체에서 반사되어 다시 초음파센서로 되돌아오는 시간이기 때문에 초음파센서와 물체 사이의 편도 이동시간이 아닌 왕복 이동시간을 의미합니다.
+
+#
+온습도센서 연결
+정보없는 소자 -> 검색해서 데이터시트로 회로도 확인
+
+#
+자이로센서
+roll: x축 기준 전후 회전
+pitch: y축 기준 좌우 회전
+yaw: z축 기준 수직 회전
+
+SCL: clock을 보냄, A5로 고정
+XDA: data를 보냄, A4로 고정
+INT: 인터럽트, 2로 고정
+(사용하는 핀 고정해 놓음)
+
+#
+적외선 센서 (IR sensor)
+감지하면 LOW, 감지하지 못하면(디폴트) HIGH
+
+#
+DC(직류)모터 중 servo모터
+PWM = Orange
+VCC = Red
+GND = Brown
+
+DC모터 극성있음
+
+#
+엔코더: 속도를 알 수 있음
+장애물 없으면 1, 있으면 0 
+
+#
+인터럽트
+1순위. 외부 인터럽트
+2순위. 타이머
+
+#
+모드버스 (MODBUS)
+서버 하나, 클라 여러개
+
+#
+디바운싱
+스위치를 손으로 한번 누를 때, 접점 부근에서 스위치의 물리적인 떨림에 의해 여러 번 눌러지는 현상이 채터링(Chattering). 이 채터링에 의한 노이즈를 보호하기 위해 디바운스(Debounce) 사용. 디바운싱은 회로적인 방법(커패시터 추가), 소프트웨어적인 방법(코딩)으로 처리.
+
+#
+플로팅: 전기를 끊었는데 전기가 흘러다님 -> 고정 필요
+
+아두이노 내 노션: https://www.notion.so/ARDUINO-SUMMARY-182610305a2049a0adffd58e6c3b0a39
