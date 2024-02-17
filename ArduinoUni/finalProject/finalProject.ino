@@ -38,9 +38,7 @@ void singSong() {
   }
 }
 
-void lightUp() {
-  int btn = digitalRead(8);
-
+void lightUp(int btn) {
   if (btn == 0) {
     digitalWrite(4, 1);
     Serial.println("ON");
@@ -49,7 +47,6 @@ void lightUp() {
     digitalWrite(4, 0);
     Serial.println("OFF");
   }
-  delay(100);
 }
 
 void loop() {
@@ -185,9 +182,11 @@ void loop() {
       servo[2].write(val3.toInt());
       servo[3].write(val4.toInt());
       delay(100);
-
-      digitalWrite(4, 1);
-      delay(5000);
+      
+      int btn = digitalRead(8);
+      lightUp(btn);
+      // digitalWrite(4, 1);
+      // delay(5000);
       
       servo[0].write(90);
       servo[1].write(90);
@@ -195,8 +194,8 @@ void loop() {
       servo[3].write(90);
       delay(500);
 
-      digitalWrite(4, 0);
-      delay(100);
+      // digitalWrite(4, 0);
+      // delay(100);
 
       Serial.println("탁!");
     }

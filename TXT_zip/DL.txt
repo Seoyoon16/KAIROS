@@ -1,0 +1,41 @@
+# Deep Learning
+학습자료: https://padlet.com/ytree/padlet-f1r2g326guwhp385
+
+데이터 입력(행렬) -> 가중치 곱 (랜덤 가중치) -> 합 -> 활성화함수 -> 출력
+퍼셉트론: 선형분류 -> XOR 문제: 선형으로 해결못함
+
+손실함수
+순방향 신경망에서 나온 값과 정답인 오차를 가중치와 바이어스에 업데이트 - optimizer
+
+hyper-parameter : learning rate, epoch
+학습률: 얼마만큼 학습시킬 것인가? 양
+에포크: 얼만큼 학습시킬 것인가? 횟수
+
+Neural Network - 전통적인 신경망
+
+
+# CNN
+합성곱 신경망
+컨볼루션
+필터 (=커널)
+패딩과 스트라이딩
+풀링 : Max Pooling, Average Pooling
+평탄화
+
+컨볼루션 & 풀링 -> 신경망
+
+드롭아웃 - overfitting 문제의 대안
+희석된 네트워크
+
+전이학습: 남이 만들어놓은 모델 가져다 쓰는 것
+바이너리라벨x -> sparse_categorical_crossentropy
+정수가 x -> categorical
+
+validation_data 교차검증
+
+# Object Dectection
+IoU(Intersection over Union)
+
+대표알고리즘
+1. RCNN : 느리지만 정확
+2. YOLO : 빠름
